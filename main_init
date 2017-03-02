@@ -145,12 +145,12 @@ mount_stowaways() {
 	mkdir /target
 
 	mount $DATA_PARTITION /data
-	mount --bind /data/multirom-wt88047/cm-12.1-20170221-UNOFFICIA/data/.stowaways/${DEFAULT_OS} /target
+	mount --bind /data/${data_subdir}/.stowaways/${DEFAULT_OS} /target
 	mkdir /target/data # in new fs
-    mount --bind /data/multirom-wt88047/cm-12.1-20170221-UNOFFICIA/data /target/data
+	mount --bind /data/${data_subdir} /target/data
    
     mkdir /target/system
-    mount --bind /data/multirom-wt88047/cm-12.1-20170221-UNOFFICIA/system /target/system
+    mount --bind /system /target/system
     
     else
         echo "Failed to mount /target, device node '$DATA_PARTITION' not found!" >> /diagnosis.log
